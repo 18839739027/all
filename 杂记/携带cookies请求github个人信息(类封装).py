@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 # @Time    : 2018/12/2620:48
-# @Auther  : zhangxinxin
+# @Author  : zhangxinxin
 # @Email   : 778786617@qq.com
 # @Software: PyCharm
 
