@@ -79,6 +79,16 @@ class GitHub(object):
         warehouse_list = me_dom.xpath('//span[@class="pinned-repo-item-content"]/span/a/span/text()')
         print(profile_email)
         print(warehouse_list)
+        # 请求个人收藏列表
+        params = {
+            'tab': 'stars'
+        }
+        stars = self.s.get(self.me_url, params=params, headers=self.headers)
+        if stars.status_code != requests.codes.ok:
+            raise Exception("请求收藏页失败")
+        stars_dom = etree.HTML(stars.text)
+        stars_list = stars_dom.xpath('//h3/a/@href')
+        print(stars_list)
 
     def run(self):
         self.get_session()
