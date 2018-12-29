@@ -16,6 +16,7 @@ from lxml import etree
 
 class GitHub(object):
     def __init__(self):
+        self.me_url = 'https://github.com/18839739027'
         self.profile_url = 'https://github.com/settings/profile'
         self.login_url = "https://github.com/login"
         self.do_login_url = "https://github.com/session"
@@ -63,13 +64,21 @@ class GitHub(object):
             else: break
 
     def profile_html(self):
+        # 请求个人设置页面数据并解析
         profile_resp = self.s.get(self.profile_url, headers=self.headers)
         if profile_resp.status_code != requests.codes.ok:
             raise Exception("请求个人页设置失败")
         # print(profile_resp.text)
         self.profile_dom = etree.HTML(profile_resp.text)
         profile_email = self.profile_dom.xpath('//select[@id="user_profile_email"]/option[2]/text()')[0]
+        # 请求主页数据并解析
+        me_resp = self.s.get(self.me_url, headers=self.headers)
+        if me_resp.status_code != requests.codes.ok:
+            raise Exception("请求主页失败")
+        me_dom = etree.HTML(me_resp.text)
+        warehouse_list = me_dom.xpath('//span[@class="pinned-repo-item-content"]/span/a/span/text()')
         print(profile_email)
+        print(warehouse_list)
 
     def run(self):
         self.get_session()
