@@ -22,7 +22,7 @@ class JdComment(object):
         self.js_content = ''
         self.conn = None
         self.cursor = None
-        # self.headers_csv()
+        self.headers_csv()
 
     def connect_sql(self):
         self.conn = pymysql.connect(
@@ -92,17 +92,19 @@ class JdComment(object):
         return data_list
 
     def headers_csv(self):
+        """创建headers, 初始化时写入"""
         with open('Jd_js_comments.csv', 'w', newline='') as f:
             writer = csv.writer(f)
             writer.writerow(['用户ID', '用户名', '评论内容', '手机信息', '点赞数', '评论数', '排序规则', '会员等级', '手机颜色', '型号'])
 
     def save_csv(self, data):
-        """更多的存储方式"""
+        """存储到csv文件中"""
         with open('Jd_js_comments.csv', 'a', newline='') as f:
             writer = csv.writer(f)
             writer.writerows(data)
 
     def save_sql(self, data):
+        """数据写入数据库"""
         self.connect_sql()
         for i in data:
             print(i)
@@ -126,7 +128,7 @@ class JdComment(object):
             }
             self.get_html(params)
             data = self.parse_html()
-            # self.save_csv(data)
+            self.save_csv(data)
             self.save_sql(data)
             print('第{}页数据爬取完毕，等待数据保存'.format(x + 1))
             time.sleep(5)
