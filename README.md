@@ -1,46 +1,46 @@
-文档
+The document
 ===
-### 关于携带cookies请求github个人信息(类封装)
-1. self.session_args:运行此项目时需键入自己的账号密码
-2. 本项目请求到的内容是自己的邮箱，自己的想要获取的信息可在函数内自行添加，项目内已备注。
+### Personal information about github's request for carrying cookies
+1. Self. Session_args: you need to enter your account password to run this project
+2. The content requested in this project is my mailbox, and the information I want to obtain can be added in the function by myself, which has been noted in the project.
 
-### csv文件的读写
-1. 内容整理自网络，代码亲测可用，侵权请联系作者, 立删
+### Read/write to CSV file
+1. Content collation from the network, code pro test available, infringement, please contact the author, delete
 
-### 爬取京东的商品信息，并保存至CSV文件中（类）
-1. 感谢小六，小勾， 小胖提供的帮助
-2. 评论数是JS加载的， 所以需要多发一个请求
-3. 捋下思路：大致分析网页， 准备cookie -> 获取网页源码 -> xpath 获取信息，返回的是列表，此时发现评论数获取失败 ->
-找到原因，请求js -> 取出评论数 -> 保存至csv 文件
-4. 代码不完整， 时间已晚， 其他的以后有时间再写(已补充一部分)
+### Crawl the product information of jingdong and save it in CSV file
+Thanks to xiao liu, xiao gou and xiao pang for their help
+2. Comments are loaded by JS, so we need to send one more request
+3. Get the train of thought: roughly analyze the web page, prepare cookie-> to obtain the source code of the web page -> xpath to obtain information, and return the list. At this time, it is found that the number of comments failed to obtain ->
+To find the reason, request js-> to take out the number of comments -> saved to the CSV file
+4. The code is incomplete, and it is late. I will write the rest later (some have been added).
 
-### 获取京东评论
-1. 存储方式：csv mysql 请自行修改自己的相关数据 eg:cookie
-2. 数据点杂乱(各位看官多多担待)
-3. 注意发送的是js请求。
+### Climb to jd review
+1. Storage: CSV mysql please modify their own relevant data eg:cookie
+2. Messy data points (sorry, everyone)
+3. Notice that the js request is sent.
 
 ### bilbil
-1. 请求的是bilbil的视频相关数据，保存到了csv 文件中
+1. The requested video related data of bilbil was saved in CSV file
 
 ### tb
-1. 读取的是本地文件，文件并未上传，仅用于个人
+1. Read the local file, the file is not uploaded, only for individuals
 
 ### jd_shujufenxi
-1. 爬取了某东的评论，展示在前端页面
-2. 如果查询数据库未发现相关数据，触发爬虫脚本，自动爬取相关数据，存储至数据库
-3. 对数据进行分析(生成条形图)
-4. 前端渲染的很简单，就用了列表(这并不是那么重要，至少目前在我看来)
+1. Crawled a comment of dong and displayed it on the front-end page
+2. If no relevant data is found in the query database, the crawler script will be triggered to automatically crawl the relevant data and store it in the database
+3. Analyze the data (generate bar charts)
+4. The front end rendering is very simple, just using the list (which is not that important, at least in my opinion for now)
 
 
-## 杂记文件夹下，列表内一个单独的文件夹or一个单独的文件是一个项目
-## --------代码亲测可用，最后测试时间，更新之日----------
+## Under miscellaneous folders, a single folder or file in the list is a project
+## ------- code pro test available, last test time, update date ------
 
 
-# 声明环境
-1. win 10(家庭版)
+# Declare the environment
+1. win 10(Home edition)
 2. python 3.6
 3. mysql 8.0
-4. pycharm (随官方版本的迭代而更新)
+4. pycharm (pro)
 5. django 2.1
 
 
